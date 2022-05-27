@@ -1,0 +1,90 @@
+[
+    {
+        "_id": 1,
+        "description": "for a similar website design and start working on the proje",
+        "picture": "https://i.ibb.co/5x21Mzq/electric-saw-removebg-preview.png",
+        "price": 141,
+        "name": "Jensen Cooke",
+        "suplierName": "Smart Furniture",
+        "quantity": 40000,
+        "minimumQuantity": 300,
+        "badge": "NEW"
+    },
+    {
+        "_id": 2,
+        "description": "for a similar website design and start working on the proje",
+        "picture": "https://i.ibb.co/fnGqn3G/iron-removebg-preview.png",
+        "price": 170,
+        "name": "Lynette Wilkins",
+        "suplierName": "Smart Furniture",
+        "quantity": 32050,
+        "minimumQuantity": 1000,
+        "badge": "Best Sell"
+    },
+    {
+        "_id": 3,
+        "description": "for a similar website design and start working on the proje",
+        "picture": "https://i.ibb.co/8d5DNvd/drill-removebg-preview.png",
+        "price": 128,
+        "name": "Drill machine",
+        "suplierName": "Smart Furniture",
+        "quantity": 25000,
+        "minimumQuantity": 500,
+        "badge": "HOT"
+    },
+    {
+        "_id": 4,
+        "description": "for a similar website design and start working on the proje",
+        "picture": "https://i.ibb.co/fnGqn3G/iron-removebg-preview.png",
+        "price": 129,
+        "name": "Electric iron",
+        "suplierName": "Smart Furniture",
+        "quantity": 25000,
+        "minimumQuantity": 500,
+        "badge": ""
+    },
+    {
+        "_id": 5,
+        "description": "for a similar website design and start working on the proje",
+        "picture": "https://i.ibb.co/wYzwdcX/metallic-hammer-removebg-preview.png",
+        "price": 180,
+        "name": "Ester Horne",
+        "suplierName": "Smart Furniture",
+        "quantity": 25000,
+        "minimumQuantity": 500,
+        "badge": ""
+    },
+    {
+        "_id": 6,
+        "description": "for a similar website design and start working on the proje",
+        "picture": "https://i.ibb.co/4KThFyj/hamer-removebg-preview.png",
+        "price": 145,
+        "name": "Nettie Fowler",
+        "suplierName": "Smart Furniture",
+        "quantity": 20000,
+        "minimumQuantity": 300,
+        "badge": "NEW"
+    },
+    {
+        "_id": 7,
+        "description": "for a similar website design and start working on the proje",
+        "picture": "https://i.ibb.co/wYzwdcX/metallic-hammer-removebg-preview.png",
+        "price": 166,
+        "name": "Maryellen Donovan",
+        "suplierName": "Smart Furniture",
+        "quantity": 200000,
+        "minimumQuantity": 1000,
+        "badge": ""
+    },
+    {
+        "_id": 8,
+        "description": "for a similar website design and start working on the proje",
+        "picture": "https://i.ibb.co/4KThFyj/hamer-removebg-preview.png",
+        "price": 160,
+        "name": "Mari Rowland",
+        "suplierName": "Smart Furniture",
+        "quantity": 40000,
+        "minimumQuantity": 350,
+        "badge": ""
+    }
+]

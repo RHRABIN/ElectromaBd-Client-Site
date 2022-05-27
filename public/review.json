@@ -1,0 +1,26 @@
+[
+    {
+        "_id": 1,
+        "country": "SriLanka",
+        "picture": "https://i.ibb.co/2sj7fzw/p3-1.jpg",
+        "comment": "This is a good product. I use this product it is plesure for me. After all ia am happy on Electroma",
+        "name": "Hayden Mcintyre",
+        "date": "09 Jan 2021"
+    },
+    {
+        "_id": 2,
+        "country": "Australia",
+        "picture": "https://i.ibb.co/7GH1Ghj/p2.jpg",
+        "comment": "This is a good product. I use this product it is plesure for me. After all ia am happy on Electroma",
+        "name": "Wheeler Bell",
+        "date": "12 July 2021"
+    },
+    {
+        "_id": 3,
+        "country": "Pakistan",
+        "picture": "https://i.ibb.co/hHQnxPn/p1.jpg",
+        "comment": "This is a good product. I use this product it is plesure for me. After all ia am happy on Electroma",
+        "name": "Monroe Horton",
+        "date": "28 Aug 2020"
+    }
+]
