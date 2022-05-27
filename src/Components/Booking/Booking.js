@@ -7,6 +7,7 @@ import { AiOutlineMinusCircle } from 'react-icons/ai';
 import BookinModal from './BookinModal';
 import { toast } from 'react-toastify';
 import BookingData from './BookingData';
+import Footer from '../../Shared/Footer';
 
 const Booking = () => {
     const { id } = useParams();
@@ -39,11 +40,9 @@ const Booking = () => {
 
             ></BookingData>
 
-            {/* <div className='text-center mt-10'>
-                <label onClick={openModal} for="bookingModals" className="btn  btn-info">Order Now</label>
-            </div> */}
+            <Footer></Footer>
 
-            <BookinModal></BookinModal>
+
 
         </div >
 

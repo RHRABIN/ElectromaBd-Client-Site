@@ -5,6 +5,7 @@ import useAdmin from '../../hooks/useAdmin';
 import auth from '../../init.firebase';
 import Loading from '../../Shared/Loading';
 import { AiOutlineMenuFold } from 'react-icons/ai'
+import Footer from '../../Shared/Footer';
 
 const DashBoard = () => {
     const [user] = useAuthState(auth);
@@ -24,6 +25,7 @@ const DashBoard = () => {
                 <div className=''>
                     <h3 className='text-3xl text-primary mt-4 text-center'>Dashboard</h3>
                     <Outlet></Outlet>
+                    <Footer></Footer>
                 </div>
 
 
