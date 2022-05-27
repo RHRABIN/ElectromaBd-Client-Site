@@ -15,7 +15,6 @@ const ManageAllOrders = () => {
         }
     }).then(res => {
         if (res.status === 401 || res.status === 403) {
-
             localStorage.removeItem('accessToken')
             signOut(auth)
             navigate('/login');
@@ -33,7 +32,6 @@ const ManageAllOrders = () => {
                     <thead>
                         <tr>
                             <th>SL</th>
-
                             <th>Email</th>
                             <th>Product Name</th>
                             <th>Paid/Unpaid</th>
