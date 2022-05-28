@@ -13,21 +13,21 @@ const BookingData = ({ product, id, refetch, }) => {
 
     return (
         <div>
-            {console.log(inputQuantity)}
-            <div className="hero min-h-screen bg-base-200">
+
+            <div className="hero min-h-screen bg-base-200 shadow-xl px-4">
                 <div className="hero-content flex-col lg:flex-row">
-                    <img src={picture} className="lg:max-w-sm w-80  rounded-lg shadow-2xl" alt='pictures' />
+                    <img src={picture} className="lg:max-w-sm w-60  rounded-lg lg:shadow-2xl" alt='pictures' />
                     <div>
                         <h1 className="text-5xl font-bold">{name}</h1>
                         <p className="py-6">{description}</p>
-                        <div className='flex lg:mt-6'>
-                            <p className='bg-cyan-200 lg:p-2 p-1 lg:px-6  text-red-400' >Total Stocks: {quantity}</p>
-                            <p className='lg:ml-4 ml:1 bg-cyan-200 p-1  lg:p-2 text-red-400' >Minimum Order Quantity: {minimumQuantity}</p>
+                        <div className='lg:flex lg:mt-6'>
+                            <p className='bg-cyan-200 mb-1 text-center lg:p-2 p-1 lg:px-6  text-red-400' >Total Stocks: {quantity}</p>
+                            <p className='lg:ml-4 ml:1 text-center bg-cyan-200 p-1  lg:p-2 text-red-400' >Minimum Order Quantity: {minimumQuantity}</p>
 
                         </div>
-                        <div className='flex'>
+                        <div className='lg:flex'>
                             <p className='bg-sky-100 lg:p-2 p-1 text-red-400 mt-2 text-center font-bold mr-2'>Price Per Product: ${price}</p>
-                            <p className='bg-sky-100 lg:p-2 p-1 text-red-400 mt-2 text-center font-bold ml-2'>Total Price: ${totalPrice}</p>
+                            <p className='bg-sky-100 lg:p-2 p-1 text-red-400 mt-2 text-center font-bold lg:ml-2'>Total Price: ${totalPrice}</p>
 
                         </div>
 
