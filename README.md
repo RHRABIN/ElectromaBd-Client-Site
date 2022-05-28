@@ -1,7 +1,7 @@
 
 # Getting Started with Create React App
 
-This project live site [Create React App](https://electroma-2c0a7.web.app/).
+This project live site [click Here](https://electroma-2c0a7.web.app/).
 
 ## Available Scripts
 
@@ -14,4 +14,5 @@ This project live site [Create React App](https://electroma-2c0a7.web.app/).
 * After Pay you will get Tnx Id 
 * Here User are two catagory , one is admin and one is genarel user.
 * admin can't see genarel user criteria, and normal user can't see admin routes 
-* ................................
+* ....................................................................
+* an Admin can make any user to admin j, and add any product , also he will access to order processing for paid, unpaid, and paid order will be shift click in shift button
