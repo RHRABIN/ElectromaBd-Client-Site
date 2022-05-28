@@ -3,6 +3,9 @@ import homepage from '../../assests/home/hompage.jpg';
 import slider1 from '../../assests/slider/Slider1.jpg';
 import slider2 from '../../assests/slider/Slider2.jpg';
 import slider3 from '../../assests/slider/Slider3.jpg';
+import Flip from 'react-reveal/Flip';
+import Bounce from 'react-reveal/Bounce';
+
 const Heading = () => {
 
     return (
@@ -13,9 +16,9 @@ const Heading = () => {
                         <div className="hero-overlay bg-opacity-60 "></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5 text-5xl font-bold">Our Product Store Demo</h1>
+                                <h1 className="mb-5 text-5xl font-bold"><Bounce left cascade>Our Product Store Demo</Bounce></h1>
                                 <p className="mb-5">Please Get Started Click to connected with us .And see update product and also get notification for every new product. If your want to get started</p>
-                                <button className="btn btn-outline btn-primary px-8">Get Started</button>
+                                <button className="btn btn-outline btn-primary px-8"><Flip right>Get Started</Flip></button>
                             </div>
                         </div>
                     </div>
@@ -25,7 +28,7 @@ const Heading = () => {
                         <div className="hero-overlay bg-opacity-60 "></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5 text-5xl font-bold">Stocked Product to See</h1>
+                                <h1 className="mb-5 text-5xl font-bold"><Bounce left cascade>Stocked Product to See</Bounce></h1>
                                 <p className="mb-5">Please Get Started Click to connected with us .And see update product and also get notification for every new product. If your want to get started</p>
                                 <button className="btn btn-outline btn-info px-8">Get Started</button>
                             </div>
@@ -37,7 +40,7 @@ const Heading = () => {
                         <div className="hero-overlay bg-opacity-60 "></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5 text-5xl font-bold">Our Product Store Demo</h1>
+                                <h1 className="mb-5 text-5xl font-bold"><Bounce right cascade>Our Product Store Demo</Bounce></h1>
                                 <p className="mb-5">Please Get Started Click to connected with us .And see update product and also get notification for every new product. If your want to get started</p>
                                 <button className="btn btn-outline btn-info px-8">Get Started</button>
                             </div>
@@ -49,7 +52,7 @@ const Heading = () => {
                         <div className="hero-overlay bg-opacity-60 "></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
-                                <h1 className="mb-5 text-5xl font-bold">Stocked Product to See</h1>
+                                <h1 className="mb-5 text-5xl font-bold"><Bounce right cascade>Stocked Product to See</Bounce></h1>
                                 <p className="mb-5">Please Get Started Click to connected with us .And see update product and also get notification for every new product. If your want to get started</p>
                                 <button className="btn btn-outline btn-info px-8">Get Started</button>
                             </div>

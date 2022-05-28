@@ -30,7 +30,7 @@ const BussinessRating = () => {
                     </div>
                     <div className="stat-title text-xl ">Our happy clients</div>
                     <div className="stat-value text-green-300"><CountUp start={0}
-                        end={31}
+                        end={32}
                         duration={2.75}></CountUp> K+</div>
                     <div className="stat-desc ">Jan 1st - Apr 1st</div>
                 </div>
@@ -40,7 +40,7 @@ const BussinessRating = () => {
                         <span className={`${circleClasses}`}><BsPeople style={iconStyles2} /></span>
                     </div>
                     <div className="stat-title text-xl ">New Users</div>
-                    <div className="stat-value text-purple-300"><CountUp start={0} end={4200} duration={3.75}></CountUp>+</div>
+                    <div className="stat-value text-purple-300"><CountUp start={0} end={4200} duration={2.75}></CountUp>+</div>
                     <div className="stat-desc ">↗︎ 400 (22%)</div>
                 </div>
 
