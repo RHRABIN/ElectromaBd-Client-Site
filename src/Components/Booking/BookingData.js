@@ -21,13 +21,13 @@ const BookingData = ({ product, id, refetch, }) => {
                         <h1 className="text-5xl font-bold">{name}</h1>
                         <p className="py-6">{description}</p>
                         <div className='flex lg:mt-6'>
-                            <p className='bg-cyan-200 p-2 lg:px-6  text-red-400' >Total Stocks: {quantity}</p>
-                            <p className='ml-4 bg-cyan-200  p-2 text-red-400' >Minimum Order Quantity: {minimumQuantity}</p>
+                            <p className='bg-cyan-200 lg:p-2 p-1 lg:px-6  text-red-400' >Total Stocks: {quantity}</p>
+                            <p className='lg:ml-4 ml:1 bg-cyan-200 p-1  lg:p-2 text-red-400' >Minimum Order Quantity: {minimumQuantity}</p>
 
                         </div>
                         <div className='flex'>
-                            <p className='bg-sky-100 p-2 text-red-400 mt-2 text-center font-bold mr-2'>Price Per Product: ${price}</p>
-                            <p className='bg-sky-100 p-2 text-red-400 mt-2 text-center font-bold ml-2'>Total Price: ${totalPrice}</p>
+                            <p className='bg-sky-100 lg:p-2 p-1 text-red-400 mt-2 text-center font-bold mr-2'>Price Per Product: ${price}</p>
+                            <p className='bg-sky-100 lg:p-2 p-1 text-red-400 mt-2 text-center font-bold ml-2'>Total Price: ${totalPrice}</p>
 
                         </div>
 
