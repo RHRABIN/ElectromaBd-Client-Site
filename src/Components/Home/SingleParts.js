@@ -8,7 +8,7 @@ const SingleParts = ({ product }) => {
         navigate(`/booking/${id}`)
     }
     return (
-        <div style={{ backgroundColor: '#1E283B' }} className="card  shadow-2xl ">
+        <div className="card  shadow-2xl ">
             <figure><img className='object-cover h-40 ' src={picture} alt={name} /></figure>
             <div className="card-body " >
                 <h2 className="card-title">

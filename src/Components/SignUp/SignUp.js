@@ -5,7 +5,8 @@ import auth from '../../init.firebase';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import Loading from '../../Shared/Loading';
 import useToken from '../../hooks/useToken'
-
+import { FiFacebook } from 'react-icons/fi'
+import { AiOutlineGooglePlus } from 'react-icons/ai'
 
 const SignUp = () => {
 
@@ -110,8 +111,8 @@ const SignUp = () => {
                 </div>
                 <div className="divider  lg:hidden lg:divider-horizontal">OR</div>
                 <div className="grid flex-grow lg:ml-10 sm:mb-4 card  rounded-box place-items-center"><div className='w-full max-w-xs'>
-                    <button onClick={handleGoogle} className='btn btn-outline btn-secondary w-full max-w-xs mb-2'>Continue with google</button>
-                    <button className='btn btn-outline btn-primary w-full max-w-xs'>Continue with facebook</button>
+                    <button onClick={handleGoogle} className='btn btn-outline btn-secondary w-full max-w-xs mb-2'><span className="flex items-center gap-4"><AiOutlineGooglePlus style={{ fontSize: '2.0em' }} /> Continue with google</span></button>
+                    <button className='btn btn-outline btn-primary w-full max-w-xs'><span className="flex items-center gap-4"><FiFacebook style={{ fontSize: '2.0em' }} /> Continue with facebook</span></button>
                 </div></div>
             </div>
 

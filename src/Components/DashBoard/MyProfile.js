@@ -7,7 +7,7 @@ import { useQuery } from 'react-query'
 const MyProfile = () => {
     const [user] = useAuthState(auth);
     // const { register, formState: { errors }, handleSubmit, reset } = useForm();
-    const { data, refetch, isLoading } = useQuery('users', () => fetch(`http://localhost:5000/userinfo/${user.email}`).then(res => res.json()))
+    const { data, refetch, isLoading } = useQuery('users', () => fetch(`https://peaceful-waters-42797.herokuapp.com/userinfo/${user.email}`).then(res => res.json()))
     const handleSubmit = (event) => {
         event.preventDefault();
         const email = user.email;

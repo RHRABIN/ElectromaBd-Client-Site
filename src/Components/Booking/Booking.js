@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import Loading from '../../Shared/Loading';
-import { AiOutlinePlusCircle } from 'react-icons/ai'
-import { AiOutlineMinusCircle } from 'react-icons/ai';
-import BookinModal from './BookinModal';
-import { toast } from 'react-toastify';
+
 import BookingData from './BookingData';
 import Footer from '../../Shared/Footer';
 

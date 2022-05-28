@@ -46,17 +46,17 @@ const BussinessRating = () => {
                     <div className="stat-figure">
                         <span className={`${circleClasses}`}><GrProjects style={iconStyles3} /></span>
                     </div>
-                    <div className="stat-title text-xl text-white">Our Products</div>
+                    <div className="stat-title text-xl ">Our Products</div>
                     <div className="stat-value text-lime-400">1,600+</div>
-                    <div className="stat-desc text-white">↘︎ 90 (14%)</div>
+                    <div className="stat-desc ">↘︎ 90 (14%)</div>
                 </div>
                 <div className="card-body lg:w-60">
                     <div className="stat-figure">
                         <span className={`${circleClasses}`}><VscFeedback style={iconStyles4} /></span>
                     </div>
-                    <div className="stat-title text-xl text-white">Feedbacks</div>
+                    <div className="stat-title text-xl ">Feedbacks</div>
                     <div className="stat-value text-primary">1,200+</div>
-                    <div className="stat-desc text-white">↘︎ 90 (14%)</div>
+                    <div className="stat-desc ">↘︎ 90 (14%)</div>
                 </div>
 
             </div>

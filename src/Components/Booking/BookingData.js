@@ -16,7 +16,7 @@ const BookingData = ({ product, id, refetch, }) => {
             {console.log(inputQuantity)}
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
-                    <img src={picture} className="max-w-sm rounded-lg shadow-2xl" alt='pictures' />
+                    <img src={picture} className="lg:max-w-sm w-80  rounded-lg shadow-2xl" alt='pictures' />
                     <div>
                         <h1 className="text-5xl font-bold">{name}</h1>
                         <p className="py-6">{description}</p>

@@ -12,7 +12,7 @@ const Parts = () => {
     //     navigate('/allparts')
     // }
     return (
-        <div className='mb-12'>
+        <div className='mb-12 '>
             <h2 className="text-3xl text-center mt-20 mb-12 text-purple-500 font-bold ">Our Product Collections</h2>
             <div className='grid sm:grid-cols-1 lg:grid-cols-4 gap-5 px-4 lg:px-20'>
                 {

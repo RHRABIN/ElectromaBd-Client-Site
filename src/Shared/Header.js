@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import auth from '../init.firebase';
 
 const Header = () => {
@@ -11,13 +11,13 @@ const Header = () => {
         signOut(auth)
     }
     const myLink = [
-        <li><Link to='blogs'>Blogs</Link></li>,
-        <li><Link to='portfolio'>Portfolio</Link></li>,
+        <li><NavLink to='blogs' className={({ isActive }) => isActive ? 'bg-primary' : 'none'}>Blogs</NavLink></li>,
+        <li><NavLink to='portfolio' className={({ isActive }) => isActive ? 'bg-primary' : 'none'}>Portfolio</NavLink></li>,
 
 
         <li>{
             user && <>
-                <Link to='dashboard'>Dashboard</Link>
+                <NavLink to='dashboard' className={({ isActive }) => isActive ? 'bg-primary' : 'none'}>Dashboard</NavLink>
             </>
 
 
@@ -27,7 +27,7 @@ const Header = () => {
             user ?
                 <button onClick={handleSignOut}>Logout</button>
                 :
-                <Link to='login'>Login</Link>
+                <NavLink to='login' className={({ isActive }) => isActive ? 'bg-primary' : 'none'}>Login</NavLink>
 
         }</li>
 
@@ -35,7 +35,7 @@ const Header = () => {
 
     return (
         <div>
-            <div className="navbar bg-slate-700 px-12">
+            <div className="navbar bg-slate-400 px-12">
 
 
                 <div className="navbar-start">
@@ -49,7 +49,7 @@ const Header = () => {
 
                     </div>
 
-                    <Link to='/home' className="btn btn-ghost normal-case text-xl">Home</Link>
+                    <NavLink to='/home' className={({ isActive }) => isActive ? 'bg-primary btn btn-ghost text-xl' : 'btn btn-ghost text-xl'}>Home</NavLink>
                 </div>
                 <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">

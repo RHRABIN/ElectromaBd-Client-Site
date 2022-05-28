@@ -4,7 +4,14 @@ import { Link, Outlet } from 'react-router-dom';
 import useAdmin from '../../hooks/useAdmin';
 import auth from '../../init.firebase';
 import Loading from '../../Shared/Loading';
-import { AiOutlineMenuFold } from 'react-icons/ai'
+import { AiOutlineMenuFold } from 'react-icons/ai';
+import { FaRegCommentAlt } from 'react-icons/fa';
+import { MdOutlineManageAccounts } from 'react-icons/md';
+import { BsCartCheck } from 'react-icons/bs'
+import { RiAdminLine } from 'react-icons/ri'
+import { AiOutlineShopping } from 'react-icons/ai'
+import { GiTempleGate } from 'react-icons/gi'
+import { GrCart } from 'react-icons/gr'
 import Footer from '../../Shared/Footer';
 
 const DashBoard = () => {
@@ -32,19 +39,20 @@ const DashBoard = () => {
             </div>
             <div className="drawer-side">
                 <label for="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 overflow-y-auto w-60 bg-slate-700 text-base-content">
+                <ul style={{ backgroundColor: '#F9FBFA' }} className="menu p-4 overflow-y-auto w-60  text-base-content">
                     {/* <!-- Sidebar content here --> */}
-                    <li><Link to='/dashboard'>My Profile</Link></li>
+                    <li><Link to='/dashboard'><span className='flex justify-center items-center gap-2'><MdOutlineManageAccounts /> My Profile</span></Link></li>
                     {!admin && <>
-                        <li><Link to='myorder'>My Orders</Link></li>
-                        <li><Link to='review' >Add Review</Link></li>
+                        <li><Link to='myorder'><span className='flex justify-center items-center gap-2'><BsCartCheck /> My Orders</span></Link></li>
+                        <li><Link to='review' ><span className='flex justify-center items-center gap-2'><FaRegCommentAlt /> Add Review</span></Link></li>
                     </>}
 
 
-                    {admin && <><li><Link to='makeadmin'>Make Admin</Link></li>
-                        <li><Link to='addproduct'>Add New Product</Link></li>
-                        <li><Link to='manageorder'>Manage All Orders</Link></li>
-                        <li><Link to='manageallproduct'>Manage All Products</Link></li></>}
+                    {admin && <>
+                        <li><Link to='addproduct'><span className='flex justify-center items-center gap-2'><AiOutlineShopping /> Add New Product</span></Link></li>
+                        <li><Link to='manageorder'><span className='flex justify-center items-center gap-2'><GrCart />Manage All Orders</span></Link></li>
+                        <li><Link to='manageallproduct'><span className='flex justify-center items-center gap-2'><GiTempleGate />Manage All Products</span></Link></li></>}
+                    <li><Link to='makeadmin'><span className='flex justify-center items-center gap-2'><RiAdminLine /> Make Admin</span></Link></li>
                 </ul>
 
             </div>
