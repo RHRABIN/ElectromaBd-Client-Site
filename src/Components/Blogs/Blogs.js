@@ -1,8 +1,8 @@
 import React from 'react';
-
+import Footer from '../../Shared/Footer'
 const Blogs = () => {
     return (
-        <div className='lg:px-20 px-2 mt-10'>
+        <div className='lg:px-20 px-4 mt-10'>
             <div className='mb-10'>
                 <h1 className='text-primary text-center text-xl underline font-bold'> How will you remove improve performance your React Application?</h1>
                 <p><span className='font-bold'></span>Optimization is the number one thing that is on the mind of every dev when building any software, especially web apps. JS frameworks like Angular, React and others, have included some awesome configurations and features. <br />
@@ -72,6 +72,7 @@ const Blogs = () => {
                     </ul>
                 </p>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

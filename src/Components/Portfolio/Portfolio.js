@@ -1,6 +1,7 @@
 import React from 'react';
 import profile from '../../assests/profile.png'
 import { FaGraduationCap } from 'react-icons/fa'
+import Footer from '../../Shared/Footer';
 const Portfolio = () => {
     return (
         <div className='grid justify-items-center mt-12'>
@@ -24,6 +25,7 @@ const Portfolio = () => {
                                     <th>Class</th>
                                     <th>Passing Year</th>
                                     <th>Subject</th>
+                                    <th>GPA/CGPA</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,12 +35,14 @@ const Portfolio = () => {
                                     <td>SSC</td>
                                     <td>2017</td>
                                     <td>Science</td>
+                                    <td>4.45</td>
                                 </tr>
                                 <tr>
 
                                     <td>Diplooma</td>
                                     <td>2022</td>
                                     <td>Computer</td>
+                                    <td>3.70</td>
                                 </tr>
 
                             </tbody>
@@ -69,7 +73,9 @@ const Portfolio = () => {
                     </div>
 
                 </div>
+                <Footer></Footer>
             </div>
+
         </div>
     );
 };
