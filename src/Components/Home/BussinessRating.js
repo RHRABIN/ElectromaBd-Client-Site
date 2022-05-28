@@ -4,7 +4,7 @@ import { BsPeople } from 'react-icons/bs'
 import { VscFeedback } from 'react-icons/vsc'
 import { GrProjects } from 'react-icons/gr';
 import footer from '../../assests/footer.png'
-
+import CountUp from 'react-countup';
 const BussinessRating = () => {
     let circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
 
@@ -28,18 +28,20 @@ const BussinessRating = () => {
                         <span className={`${circleClasses}`}>< FaFlagCheckered style={iconStyles} /></span>
 
                     </div>
-                    <div className="stat-title text-xl text-white">Our happy clients</div>
-                    <div className="stat-value text-green-300">31K+</div>
-                    <div className="stat-desc text-white">Jan 1st - Apr 1st</div>
+                    <div className="stat-title text-xl ">Our happy clients</div>
+                    <div className="stat-value text-green-300"><CountUp start={0}
+                        end={31}
+                        duration={2.75}></CountUp> K+</div>
+                    <div className="stat-desc ">Jan 1st - Apr 1st</div>
                 </div>
 
                 <div className="card-body  lg:w-60 ">
                     <div className="stat-figure">
                         <span className={`${circleClasses}`}><BsPeople style={iconStyles2} /></span>
                     </div>
-                    <div className="stat-title text-xl text-white">New Users</div>
-                    <div className="stat-value text-purple-300">4,200+</div>
-                    <div className="stat-desc text-white">↗︎ 400 (22%)</div>
+                    <div className="stat-title text-xl ">New Users</div>
+                    <div className="stat-value text-purple-300"><CountUp start={0} end={4200} duration={3.75}></CountUp> 4,200+</div>
+                    <div className="stat-desc ">↗︎ 400 (22%)</div>
                 </div>
 
                 <div className="card-body lg:w-60">
