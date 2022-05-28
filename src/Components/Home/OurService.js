@@ -1,7 +1,8 @@
 import React from 'react';
 import { FiPhoneCall } from 'react-icons/fi'
 import { GoLocation } from 'react-icons/go'
-import { AiOutlineClockCircle } from 'react-icons/ai'
+import { AiOutlineClockCircle } from 'react-icons/ai';
+
 const OurService = () => {
     let iconStyles = { color: "green", fontSize: "2.5em" };
     let iconStyles2 = { color: "cyan", fontSize: "2.5em" };
