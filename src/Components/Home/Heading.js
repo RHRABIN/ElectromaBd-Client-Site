@@ -6,66 +6,77 @@ import slider3 from '../../assests/slider/Slider3.jpg';
 import Flip from 'react-reveal/Flip';
 import Bounce from 'react-reveal/Bounce';
 
-const Heading = () => {
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper";
 
+import "swiper/css";
+import "swiper/css/pagination";
+
+import { Pagination } from "swiper";
+import { useState } from 'react';
+import { useEffect } from 'react';
+
+const Heading = () => {
+    const [sliders, setSlider] = useState([])
+    useEffect(() => {
+        fetch('homePageSlider.json').then(res => res.json())
+            .then(result => setSlider(result))
+    }, [])
     return (
         <div>
-            <div className="carousel w-full">
-                <div id="item1" className="carousel-item w-full">
-                    <div className="hero  min-h-screen" style={{ backgroundImage: `url(${homepage})` }}>
-                        <div className="hero-overlay bg-opacity-60 "></div>
-                        <div className="hero-content text-center text-neutral-content">
-                            <div className="max-w-md">
-                                <h1 className="mb-5 text-5xl font-bold"><Bounce left cascade>Our Product Store Demo</Bounce></h1>
-                                <p className="mb-5">Please Get Started Click to connected with us .And see update product and also get notification for every new product. If your want to get started</p>
-                                <button className="btn btn-outline btn-primary px-8"><Flip right>Get Started</Flip></button>
+            <Swiper
+                slidesPerView={10}
+                spaceBetween={5}
+                pagination={{
+                    clickable: true,
+                }}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                breakpoints={{
+                    "@0.00": {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    "@0.75": {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    "@1.00": {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                    "@1.50": {
+                        slidesPerView: 1,
+                        spaceBetween: 10,
+                    },
+                }}
+                modules={[Pagination, Autoplay]}
+                className="mySwiper"
+            >
+                {sliders?.map((slider) => (
+                    <SwiperSlide key={slider._id}>
+
+
+                        <div className="hero  min-h-[60vh]" style={{ backgroundImage: `url(${slider.img})` }}>
+                            <div className="hero-overlay bg-opacity-60 "></div>
+                            <div className="hero-content text-center text-neutral-content">
+                                <div className="">
+                                    <h1 className="mb-5 text-5xl font-bold text-white">{slider.heading}</h1>
+                                    <p className="mb-5">{slider.Text}</p>
+                                    <button
+
+                                        className="btn  btn-warning px-8">Get Started With Us</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div id="item2" className="carousel-item w-full">
-                    <div className="hero min-h-screen" style={{ backgroundImage: `url(${slider1})` }}>
-                        <div className="hero-overlay bg-opacity-60 "></div>
-                        <div className="hero-content text-center text-neutral-content">
-                            <div className="max-w-md">
-                                <h1 className="mb-5 text-5xl font-bold"><Bounce left cascade>Stocked Product to See</Bounce></h1>
-                                <p className="mb-5">Please Get Started Click to connected with us .And see update product and also get notification for every new product. If your want to get started</p>
-                                <button className="btn btn-outline btn-info px-8">Get Started</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="item3" className="carousel-item w-full">
-                    <div className="hero min-h-screen" style={{ backgroundImage: `url(${slider2})` }}>
-                        <div className="hero-overlay bg-opacity-60 "></div>
-                        <div className="hero-content text-center text-neutral-content">
-                            <div className="max-w-md">
-                                <h1 className="mb-5 text-5xl font-bold"><Bounce right cascade>Our Product Store Demo</Bounce></h1>
-                                <p className="mb-5">Please Get Started Click to connected with us .And see update product and also get notification for every new product. If your want to get started</p>
-                                <button className="btn btn-outline btn-info px-8">Get Started</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="item4" className="carousel-item w-full">
-                    <div className="hero min-h-screen" style={{ backgroundImage: `url(${slider3})` }}>
-                        <div className="hero-overlay bg-opacity-60 "></div>
-                        <div className="hero-content text-center text-neutral-content">
-                            <div className="max-w-md">
-                                <h1 className="mb-5 text-5xl font-bold"><Bounce right cascade>Stocked Product to See</Bounce></h1>
-                                <p className="mb-5">Please Get Started Click to connected with us .And see update product and also get notification for every new product. If your want to get started</p>
-                                <button className="btn btn-outline btn-info px-8">Get Started</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="flex justify-center w-full py-2 gap-2">
-                <a href="#item1" className="btn btn-xs">1</a>
-                <a href="#item2" className="btn btn-xs">2</a>
-                <a href="#item3" className="btn btn-xs">3</a>
-                <a href="#item4" className="btn btn-xs">4</a>
-            </div>
+
+
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+
 
         </div>
     );

@@ -28,7 +28,7 @@ const AllUsers = () => {
     return (
         <div >
             <h1 className='text-center text-xl text-orange-400 mt-4'>Total user {data?.length}</h1>
-            <div className="overflow-x-auto shadow-2xl">
+            <div className="overflow-x-auto shadow-2xl px-2">
                 <table className="table w-full ">
 
                     <thead>
@@ -42,12 +42,12 @@ const AllUsers = () => {
                     <tbody>
 
                         {
-                            data.map((user, index) => <User
+                            (data ? data?.map((user, index) => <User
                                 key={user._id}
                                 userInfo={user}
                                 refetch={refetch}
                                 index={index}
-                            ></User>)
+                            ></User>) : '')
                         }
 
                     </tbody>

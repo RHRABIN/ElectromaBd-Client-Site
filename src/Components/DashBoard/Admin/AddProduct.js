@@ -66,7 +66,7 @@ const AddProduct = () => {
     return (
         <div className='flex flex-col items-center'>
             <h2 className="text-2xl text-secondary text-center mt-5">Add New Product</h2>
-            <div className="card w-96 bg-base-100 shadow-xl image-full">
+            <div className="card w-80 lg:w-96  shadow">
 
                 <div className="card-body">
 

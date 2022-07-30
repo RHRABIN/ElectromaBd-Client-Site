@@ -23,7 +23,7 @@ const MyOrder = () => {
 
 
     return (
-        <div className='my-10'>
+        <div className='my-10 px-2'>
             <h2 className="text-2xl text-orange-400 text-center mt-10 mb-2 ">Total Orders : {orders?.length}</h2>
             <div className="overflow-x-auto shadow-xl">
 

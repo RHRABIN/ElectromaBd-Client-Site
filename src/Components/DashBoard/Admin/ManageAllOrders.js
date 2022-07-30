@@ -25,10 +25,10 @@ const ManageAllOrders = () => {
         return <Loading></Loading>
     }
     return (
-        <div className='mt-5 my-12 flex flex-col items-center'>
+        <div className='mt-5 my-12 px-2'>
             <h1 className='text-xl text-primary font-serif text-center'>Manage order</h1>
             <div className=" shadow-2xl">
-                <table className="table ">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>SL</th>

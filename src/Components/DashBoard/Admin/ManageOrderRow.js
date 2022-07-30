@@ -29,7 +29,7 @@ const ManageOrderRow = ({ order, index, refetch }) => {
             <td>{product}</td>
             <td>{order.paid ? <p className='text-green-500 font-bold'>Paid</p> : <p className='text-red-400 font-bold'>Unpaid</p>}</td>
 
-            <td>{(order.paid && !order.shift) ? <button onClick={() => handleShift(order._id)} className='btn btn-xs btn-info'>Shift</button> : <span>{order.shift ? <span className='text-primary font-semibold'>Pending</span> : ''}</span>}</td>
+            <td>{(order.paid && !order.shift) ? <button onClick={() => handleShift(order._id)} className='btn btn-xs btn-info'>Shift</button> : <span>{order.shift ? <span className='text-primary font-semibold'>Pending</span> : <span className='btn btn-info btn-xs'>Delete</span>}</span>}</td>
 
         </tr>
     );

@@ -5,6 +5,7 @@ import auth from '../init.firebase';
 
 const useAllParts = () => {
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
     useEffect(() => {
         fetch('https://peaceful-waters-42797.herokuapp.com/services')
@@ -12,9 +13,11 @@ const useAllParts = () => {
             .then(data => {
                 // console.log(data)
                 setProducts(data)
+                setLoading(false)
             })
     }, []);
-    return [products, setProducts]
+
+    return [products, loading]
 };
 
 export default useAllParts;

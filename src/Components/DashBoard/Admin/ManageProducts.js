@@ -28,10 +28,10 @@ const ManageProducts = () => {
         return <Loading></Loading>
     }
     return (
-        <div className='flex flex-col items-center'>
+        <div className='px-2'>
             <h1 className="text-xl text-center text-primary">Manage All Products</h1>
             <div className="overflow-x-auto shadow-2xl">
-                <table className="table ">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th>SL</th>

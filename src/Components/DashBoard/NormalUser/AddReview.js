@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../init.firebase';
 import { toast } from 'react-toastify';
-import f1 from '../../../assests/f1.jpeg'
+
 const AddReview = () => {
     const [user] = useAuthState(auth);
 
@@ -36,13 +36,13 @@ const AddReview = () => {
     return (
         <div className='flex flex-col items-center'>
             <h2 className="text-2xl text-secondary text-center mt-5 mb-1 underline">Add Review</h2>
-            <div className="card w-96 bg-base-100 shadow-xl image-full">
-                <figure><img src={f1} alt="Shoes" /></figure>
+            <div className="card w-80 lg:w-96  shadow-xl">
+
                 <div className="card-body">
 
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-control w-full max-w-x">
-                            <textarea className="textarea textarea-bordered my-2 w-full max-w-xs" placeholder="Your comment here" {...register("comment", {
+                            <textarea className="textarea textarea-bordered my-2 w-full max-w-xs text-black" placeholder="Your comment here" {...register("comment", {
                                 required: {
                                     value: true,
                                     message: 'Comment is Required'
@@ -61,7 +61,7 @@ const AddReview = () => {
 
                         <div className="form-control w-full max-w-xs">
 
-                            <input type="number" placeholder="Your Rating" className="input input-bordered w-full max-w-xs" {...register("rating", {
+                            <input type="number" placeholder="Your Rating" className="input input-bordered w-full max-w-xs text-black" {...register("rating", {
                                 required: {
                                     value: true,
                                     message: 'Rating is Required'

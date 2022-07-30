@@ -7,7 +7,7 @@ const AllPart = ({ p }) => {
         navigate(`/booking/${id}`)
     }
     return (
-        <div className="card  shadow-xl">
+        <div className="card w-96 shadow-xl">
 
             <figure><img width={200} className='' src={p.picture} alt={p.name} /></figure>
             <div className="card-body">

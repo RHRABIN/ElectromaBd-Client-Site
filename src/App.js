@@ -22,8 +22,10 @@ import ManageProducts from './Components/DashBoard/Admin/ManageProducts';
 import Blogs from './Components/Blogs/Blogs';
 import Portfolio from './Components/Portfolio/Portfolio';
 import RequireAdmin from './hooks/RequireAdmin';
-import RequireUser from './hooks/RequireUser';
+import useAdmin from './hooks/useAdmin';
+
 function App() {
+  const [admin] = useAdmin()
   return (
     <div >
       <Header></Header>
@@ -49,6 +51,7 @@ function App() {
           <Route path='addproduct' element={<RequireAdmin><AddProduct /></RequireAdmin>}></Route>
           <Route path='manageorder' element={<RequireAdmin><ManageAllOrders /></RequireAdmin>}></Route>
           <Route path='manageallproduct' element={<RequireAdmin><ManageProducts /></RequireAdmin>}></Route>
+
 
         </Route>
         < Route path='/login' element={<Login />} />

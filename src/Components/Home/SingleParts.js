@@ -10,7 +10,7 @@ const SingleParts = ({ product }) => {
     }
     return (
         <Fade bottom >
-            <div className="card  shadow-2xl ">
+            <div className="card w-80  shadow-xl ">
                 <figure><img className='object-cover h-40 ' src={picture} alt={name} /></figure>
                 <div className="card-body " >
                     <h2 className="card-title">
@@ -23,7 +23,7 @@ const SingleParts = ({ product }) => {
                         <div className="badge badge-outline bg-red-600 text-white ">Minimum Order: {minimumQuantity}</div>
                         <div className="badge badge-outline bg-red-500 text-white">Price: ${price}</div>
                     </div>
-                    <button onClick={() => handleBooking(_id)} className='btn btn-outline btn-info font-bold'>Book Now</button>
+                    <button onClick={() => handleBooking(_id)} className='btn font-bold'>Book Now</button>
                 </div>
             </div>
         </Fade>

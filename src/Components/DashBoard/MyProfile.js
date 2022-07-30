@@ -45,7 +45,7 @@ const MyProfile = () => {
     return (
         <div className='flex flex-col items-center'>
 
-            <div className="card lg:w-1/2 w-80  bg-base-300 shadow-xl mt-5 mb-5">
+            <div className="card lg:w-1/2 w-80 shadow mt-5 mb-5">
 
                 <figure className="">
                     <div className="avatar mt-4">
@@ -63,7 +63,7 @@ const MyProfile = () => {
                     <p className='text-center'>{data?.address ? `Address: ${data.address}` : ''}</p>
                     <p className='text-center'>{data?.education ? `Study: ${data.education}` : ''}</p>
 
-                    <small className='text-center text-orange-300'>Update Your Profile</small>
+                    <small className='text-center font-bold'>Update Your Profile</small>
 
 
 

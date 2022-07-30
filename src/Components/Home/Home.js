@@ -1,6 +1,7 @@
 import React from 'react';
 import Footer from '../../Shared/Footer';
 import BussinessRating from './BussinessRating';
+import ContactForm from './ContactForm';
 import Featured from './Featured';
 import Heading from './Heading';
 import OurService from './OurService';
@@ -11,11 +12,12 @@ const Home = () => {
     return (
         <div>
             <Heading></Heading>
+            <BussinessRating></BussinessRating>
             <Parts></Parts>
             <Featured></Featured>
             <Review></Review>
             <OurService></OurService>
-            <BussinessRating></BussinessRating>
+            {/* <ContactForm></ContactForm> */}
             <Footer></Footer>
         </div>
     );

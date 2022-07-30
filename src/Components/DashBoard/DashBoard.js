@@ -30,7 +30,7 @@ const DashBoard = () => {
                 <div className="mt-2 ml-2"><label for="my-drawer-2" className="btn btn-outline  btn-info  drawer-button lg:hidden"><AiOutlineMenuFold /></label></div>
                 {/* <!-- Page content here --> */}
                 <div className=''>
-                    <h3 className='text-3xl text-primary mt-4 text-center'>Dashboard</h3>
+
                     <Outlet></Outlet>
                     <Footer></Footer>
                 </div>
@@ -51,8 +51,9 @@ const DashBoard = () => {
                     {admin && <>
                         <li><Link to='addproduct'><span className='flex justify-center items-center gap-2'><AiOutlineShopping /> Add New Product</span></Link></li>
                         <li><Link to='manageorder'><span className='flex justify-center items-center gap-2'><GrCart />Manage All Orders</span></Link></li>
-                        <li><Link to='manageallproduct'><span className='flex justify-center items-center gap-2'><GiTempleGate />Manage All Products</span></Link></li></>}
-                    <li><Link to='makeadmin'><span className='flex justify-center items-center gap-2'><RiAdminLine /> Make Admin</span></Link></li>
+                        <li><Link to='manageallproduct'><span className='flex justify-center items-center gap-2'><GiTempleGate />Manage All Products</span></Link></li>
+                        <li><Link to='makeadmin'><span className='flex justify-center items-center gap-2'><RiAdminLine /> Make Admin</span></Link></li></>}
+
                 </ul>
 
             </div>
