@@ -8,7 +8,7 @@ import User from './User';
 
 const AllUsers = () => {
     const navigate = useNavigate()
-    const { data, isLoading, refetch } = useQuery('users', () => fetch('https://peaceful-waters-42797.herokuapp.com/users', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://peaceful-waters-42797.herokuapp.com/users', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -22,12 +22,13 @@ const AllUsers = () => {
         }
         return res.json()
     }));
-    if (isLoading) {
+    if (isLoading || users.length === 1 || users.length === undefined) {
         return <Loading ></Loading>
     }
+
     return (
         <div >
-            <h1 className='text-center text-xl text-orange-400 mt-4'>Total user {data?.length}</h1>
+            <h1 className='text-center text-xl text-orange-400 mt-4'>Total user {users?.length}</h1>
             <div className="overflow-x-auto shadow-2xl px-2">
                 <table className="table w-full ">
 
@@ -42,7 +43,7 @@ const AllUsers = () => {
                     <tbody>
 
                         {
-                            (data ? data?.map((user, index) => <User
+                            (users ? users?.map((user, index) => <User
                                 key={user._id}
                                 userInfo={user}
                                 refetch={refetch}

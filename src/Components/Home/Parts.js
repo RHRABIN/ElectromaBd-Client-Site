@@ -1,9 +1,13 @@
 import React from 'react';
 import SingleParts from './SingleParts';
 import useAllParts from '../../hooks/UseAllParts';
+import Loading from '../../Shared/Loading';
 
 const Parts = () => {
-    const [products] = useAllParts()
+    const [products, loading] = useAllParts()
+    if (loading) {
+        return <Loading></Loading>
+    }
     return (
         <div className='mb-12 '>
             <h2 className="text-3xl px-4 lg:px-20 font-bold mt-20 mb-6 "> Our Product Collections (trending)</h2>
