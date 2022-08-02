@@ -4,7 +4,6 @@ import { Link, Outlet } from 'react-router-dom';
 import useAdmin from '../../hooks/useAdmin';
 import auth from '../../init.firebase';
 import Loading from '../../Shared/Loading';
-import { AiOutlineMenuFold } from 'react-icons/ai';
 import { FaRegCommentAlt } from 'react-icons/fa';
 import { MdOutlineManageAccounts } from 'react-icons/md';
 import { BsCartCheck } from 'react-icons/bs'
@@ -12,6 +11,8 @@ import { RiAdminLine } from 'react-icons/ri'
 import { AiOutlineShopping } from 'react-icons/ai'
 import { GiTempleGate } from 'react-icons/gi'
 import { GrCart } from 'react-icons/gr'
+import { AiOutlineMenuFold } from 'react-icons/ai';
+
 import Footer from '../../Shared/Footer';
 
 const DashBoard = () => {
@@ -27,7 +28,7 @@ const DashBoard = () => {
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 
             <div className="drawer-content bg-slate-200 flex flex-col  ">
-                <div className="mt-2 ml-2"><label for="my-drawer-2" className="btn btn-outline  btn-info  drawer-button lg:hidden"><AiOutlineMenuFold /></label></div>
+                {/* <div className="mt-2 ml-2"><label for="my-drawer-2" className="btn btn-outline  btn-info  drawer-button lg:hidden"><AiOutlineMenuFold /></label></div> */}
                 {/* <!-- Page content here --> */}
                 <div className=''>
 

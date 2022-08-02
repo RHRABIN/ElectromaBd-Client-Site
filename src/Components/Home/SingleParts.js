@@ -17,11 +17,11 @@ const SingleParts = ({ product }) => {
                         {name}
                         {/* <div className="badge badge-warning">{badge}</div> */}
                     </h2>
-                    <p>{description}</p>
+                    <p>{description.slice(0, 50)}</p>
                     <div className="card-actions justify-center">
                         <div className="badge badge-outline bg-red-600 text-white">Available: {quantity}</div>
                         <div className="badge badge-outline bg-red-600 text-white ">Minimum Order: {minimumQuantity}</div>
-                        <div className="badge badge-outline bg-red-500 text-white">Price: ${price}</div>
+                        <div className="badge badge-outline bg-red-600 text-white">Price: ${price}</div>
                     </div>
                     <button onClick={() => handleBooking(_id)} className='btn font-bold'>Book Now</button>
                 </div>

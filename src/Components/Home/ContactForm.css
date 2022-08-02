@@ -1,0 +1,7 @@
+.background-image {
+    background-image: url('../../assests/bg-rating2.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.6);
+    background-blend-mode: overlay;
+}
