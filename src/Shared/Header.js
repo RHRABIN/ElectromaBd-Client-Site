@@ -58,7 +58,7 @@ const Header = () => {
 
                 </div>
                 <div>
-                    {location.pathname === '/dashboard' ? <label for="my-drawer-2" className="btn btn-outline  btn-info  drawer-button lg:hidden"><AiOutlineMenuFold /> </label> : ''}
+                    {location.pathname.includes("dashboard") ? <label for="my-drawer-2" className="btn btn-outline  btn-info  drawer-button lg:hidden"><AiOutlineMenuFold /> </label> : ''}
 
                 </div>
                 <div className="navbar-end hidden lg:flex">
