@@ -103,7 +103,7 @@ const Login = () => {
                         <input type="submit" value={'Login'} className="btn w-full font-bold text-xl  max-w-xs mb-2" />
                     </form>
                     <p>New to Electroma? <Link to='/signup' className='text-primary font-semibold'>Please Sign Up</Link></p>
-                    <p><button onlClick onClick={() => handleForgetPassword(email)} className='text-primary font-semibold'>Forget Password</button></p>
+                    <p><button onlClick onClick={() => handleForgetPassword(email)} className='text-primary font-semibold'>Forget Password?</button></p>
                 </div>
                 <div className="divider  px-6">OR</div>
 

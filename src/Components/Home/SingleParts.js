@@ -17,7 +17,7 @@ const SingleParts = ({ product }) => {
                         {name}
                         {/* <div className="badge badge-warning">{badge}</div> */}
                     </h2>
-                    <p>{description.slice(0, 50)}</p>
+                    <p>{description.slice(0, 150)}...</p>
                     <div className="card-actions justify-center">
                         <div className="badge badge-outline bg-red-600 text-white">Available: {quantity}</div>
                         <div className="badge badge-outline bg-red-600 text-white ">Minimum Order: {minimumQuantity}</div>
