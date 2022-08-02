@@ -16,33 +16,20 @@ const Booking = () => {
         }
     }).then(res => res.json()));
 
-
     if (isLoading) {
         return <Loading></Loading>
     }
-
-
-
-
     return (
-
-
-
         <div>
             <BookingData
                 key={product._id}
                 product={product}
                 id={id}
                 refetch={refetch}
-
             ></BookingData>
 
             <Footer></Footer>
-
-
-
         </div >
-
     );
 };
 

@@ -1,68 +1,245 @@
-import React, { useState } from 'react';
-import { AiOutlineMinus, AiOutlinePlus, AiOutlinePlusCircle } from 'react-icons/ai'
-import { AiOutlineMinusCircle } from 'react-icons/ai';
-import BookinModal from './BookinModal';
+import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import auth from '../../init.firebase';
 const BookingData = ({ product, id, refetch, }) => {
-    const { picture, quantity, price, name, description, minimumQuantity, } = product;
-    const [inputQuantity, setInputQuantity] = useState(minimumQuantity);
-    const [totalPrice, setTotalPrice] = useState(minimumQuantity * price);
-    const [modalData, setModalData] = useState(null);
-    const openModal = () => {
-        setModalData(1);
-    }
+    const navigate = useNavigate()
+
+    const { picture, quantity, price, name, description, minimumQuantity, _id } = product;
+
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
+    const [user] = useAuthState(auth);
+
+
+    const onSubmit = async (data) => {
+
+        const order = {
+            product: product.name,
+            name: user?.displayName,
+            email: user?.email,
+            address: data.address,
+            orderQuantity: data.ordered,
+            price: product.price
+        }
+        fetch('https://peaceful-waters-42797.herokuapp.com/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(result => {
+                // console.log(result)
+            })
+        const previousQuatity = parseInt(product.quantity);
+        const inputQuantity = parseInt(data.bookQuantity);
+        const quantity = (previousQuatity - inputQuantity);
+
+        fetch(`https://peaceful-waters-42797.herokuapp.com/services/${id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ quantity })
+        })
+            .then(res => res.json())
+            .then(updateResult => {
+                if (updateResult.modifiedCount > 0) {
+                    toast.success('Your Order Saved')
+                    navigate('/home')
+                }
+                else {
+                    toast.error('Failed to order')
+                }
+                refetch()
+            })
+        reset()
+    };
 
     return (
-        <div>
-
-            <div className="hero min-h-screen bg-base-200 shadow-xl px-4">
-                <div className="hero-content flex-col lg:flex-row">
-                    <img src={picture} className="lg:max-w-sm w-60  rounded-lg lg:shadow-2xl" alt='pictures' />
+        <>
+            <div className="hero">
+                <div className="hero-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-12">
+                    <img className=" w-full lg:w-[75%] " src={picture} alt="item" />
                     <div>
-                        <h1 className="text-5xl font-bold">{name}</h1>
+                        <h1 className="text-2xl font-bold"> {name?.slice(1, 70)}... </h1>
                         <p className="py-6">{description}</p>
-                        <div className='lg:flex lg:mt-6'>
-                            <p className='bg-cyan-200 mb-1 text-center lg:p-2 p-1 lg:px-6  text-red-400' >Total Stocks: {quantity}</p>
-                            <p className='lg:ml-4 ml:1 text-center bg-cyan-200 p-1  lg:p-2 text-red-400' >Minimum Order Quantity: {minimumQuantity}</p>
-
+                        <p className="mb-5 font-bold"> Product ID : {_id} </p>
+                        <div>
+                            <div className="badge  badge-outline">
+                                Minimum Order {minimumQuantity} unit
+                            </div>
+                            <div className="badge  ml-6 badge-outline">
+                                Available Stock {quantity} unit
+                            </div>
                         </div>
-                        <div className='lg:flex'>
-                            <p className='bg-sky-100 lg:p-2 p-1 text-red-400 mt-2 text-center font-bold mr-2'>Price Per Product: ${price}</p>
-                            <p className='bg-sky-100 lg:p-2 p-1 text-red-400 mt-2 text-center font-bold lg:ml-2'>Total Price: ${totalPrice}</p>
-
+                        <div className="py-4 font-bold my-3 text-primary text-lg">
+                            Product Price ${price}/unit
                         </div>
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div className="form-control">
+                                <div className="flex items-center justify-between flex-col lg:flex-row md:flex-row">
+                                    <input
+                                        type="text"
+                                        value={user.displayName}
+                                        readOnly
+                                        placeholder="Full Name"
+                                        className="input input-bordered w-full mb-5 mr-2 "
+                                    />
+                                    <input
+                                        type="text"
+                                        value={user.email}
+                                        placeholder="Email Address"
+                                        readOnly
+                                        className="input input-bordered w-full mb-5 "
+                                    />
+                                </div>
 
-                        <div className='flex justify-center items-center'>
-                            <button disabled={inputQuantity <= minimumQuantity} onClick={() => {
-                                setInputQuantity(inputQuantity - 1)
-                                setTotalPrice(inputQuantity * price)
-                            }} className='btn mt-4 btn-sm btn-outline btn-info mr-4' ><AiOutlineMinus style={{ fontSize: '2.0em', }} /></button>
+                                <label className="label">
+                                    {errors.address?.type === "required" && (
+                                        <span className="label-text-alt text-red-500">
+                                            {errors.address.message}
+                                        </span>
+                                    )}
+                                    {errors.apt?.type === "required" && (
+                                        <span className="label-text-alt text-red-500">
+                                            {errors.apt.message}
+                                        </span>
+                                    )}
+                                </label>
+                                <div className="flex items-center justify-between">
+                                    <input
+                                        type="text"
+                                        placeholder="Address"
+                                        className="input input-bordered w-[78%] mb-5 "
+                                        {...register("address", {
+                                            required: {
+                                                value: true,
+                                                message: "Address is Required",
+                                            },
+                                        })}
+                                    />
 
-                            <input className='mt-4 w-20 text-center text-xl text-red-500' value={inputQuantity} type="text" name="quantity" id="quantity" />
+                                    <input
+                                        type="text"
+                                        placeholder="Apt/Suite"
+                                        className="input input-bordered w-[20%] mb-5 "
+                                        {...register("apt", {
+                                            required: {
+                                                value: true,
+                                                message: "Apt/Suite is Required",
+                                            },
+                                        })}
+                                    />
+                                </div>
 
-                            <button onClick={() => {
-                                setInputQuantity(inputQuantity + 1)
-                                setTotalPrice(inputQuantity * price)
-                            }} className='btn mt-4 btn-sm btn-outline btn-info ml-4'><AiOutlinePlus style={{ fontSize: '2.0em' }} /></button>
-                        </div>
+                                <label className="label">
+                                    {errors.state?.type === "required" && (
+                                        <span className="label-text-alt text-red-500">
+                                            {errors.state.message}
+                                        </span>
+                                    )}
+                                    {errors.zipCode?.type === "required" && (
+                                        <span className="label-text-alt text-red-500">
+                                            {errors.zipCode.message}
+                                        </span>
+                                    )}
+                                    {errors.zipCode?.type === "pattern" && (
+                                        <span className="label-text-alt text-red-500">
+                                            {errors.zipCode.message}
+                                        </span>
+                                    )}
+                                </label>
+                                <div className="flex items-center justify-between">
+                                    <input
+                                        type="text"
+                                        placeholder="State"
+                                        className="input input-bordered w-[78%] mb-5 "
+                                        {...register("state", {
+                                            required: {
+                                                value: true,
+                                                message: "State is Required",
+                                            },
+                                        })}
+                                    />
 
-                        {
-                            modalData && <BookinModal
-                                key={product._id}
-                                product={product}
-                                refetch={refetch}
-                                id={id}
-                                quantityOrder={inputQuantity}
-                                setModalData={setModalData}
-                            ></BookinModal>
-                        }
+                                    <input
+                                        type="text"
+                                        placeholder="Zip-Code"
+                                        className="input input-bordered w-[20%] mb-5 "
+                                        {...register("zipCode", {
+                                            required: {
+                                                value: true,
+                                                message: "Zip-Code is Required",
+                                            },
+                                            pattern: {
+                                                value: /^[0-9]*$/,
+                                                message: "Provide a valid Number",
+                                            },
+                                        })}
+                                    />
+                                </div>
+                                <label className="label">
+                                    <span className="label-text">Select Order Quantity</span>
+                                </label>
+                                <label className="input-group">
+                                    <div className="form-control">
+                                        <input
+                                            {...register("ordered", {
+                                                max: {
+                                                    value: quantity,
+                                                },
+                                                min: {
+                                                    value: minimumQuantity,
+                                                },
+                                                required: true,
+                                            })}
+                                            type="number"
+                                            defaultValue={minimumQuantity}
+                                            placeholder="Please Enter your quantity"
+                                            className="input input-bordered"
+                                        />
+                                        {errors.ordered?.type === "max" && (
+                                            <span className="text-error mt-2">
+                                                Please Order less than {quantity}
+                                            </span>
+                                        )}
+                                        {errors.ordered?.type === "min" && (
+                                            <span className="text-error mt-2">
+                                                Please Order more than {minimumQuantity}
+                                            </span>
+                                        )}
+                                        {errors.ordered?.type === "required" && (
+                                            <span className="text-error mt-2">Order Amount Require</span>
+                                        )}
+                                    </div>
+                                </label>
+                            </div>
+
+                            {errors.ordered?.type === "max" ||
+                                errors.ordered?.type === "min" ||
+                                errors.ordered?.type === "required" ? (
+                                <input
+                                    type="submit"
+                                    value="Place Order"
+                                    disabled
+                                    className={`btn btn-primary mt-5 `}
+                                />
+                            ) : (
+                                <input
+                                    type="submit"
+                                    value="Place Order"
+                                    className={`btn btn-primary mt-5`}
+                                />
+                            )}
+                        </form>
                     </div>
-
                 </div>
             </div>
-            <div className='text-center mt-10'>
-                <label onClick={openModal} for="bookingModals" className="btn  btn-info">Order Now</label>
-            </div>
-        </div>
+        </>
     );
 };
 

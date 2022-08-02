@@ -1,7 +1,8 @@
-import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import React, { useState } from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useToken from '../../hooks/useToken';
 import auth from '../../init.firebase';
 import Loading from '../../Shared/Loading';
@@ -10,29 +11,41 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation()
     const from = location?.state?.from?.pathname || '/';
-
+    const [email, setEmail] = useState('');
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
     // handle google 
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    // handle submit
+    const [sendPasswordResetEmail, sending, errorReset] = useSendPasswordResetEmail(auth);
+
+    // handle submit by email and password
     const onSubmit = async (data) => {
         await signInWithEmailAndPassword(data.email, data.password);
         reset()
     };
-    // handle google
+    // handle google sign in
     const handleGoogle = () => {
         signInWithGoogle()
     }
-
+    // handle reset password
+    const handleForgetPassword = async (email) => {
+        console.log(email)
+        if (email) {
+            await sendPasswordResetEmail(email)
+            toast("Verification Email Send")
+        }
+        else {
+            toast.warning("Enter a Valid Email")
+        }
+    }
     const [token] = useToken(user || gUser);
 
     // handle loadin error and navigate
-    if (loading || gLoading) {
+    if (loading || gLoading || sending) {
         return <Loading></Loading>
     }
-    if (error || gError) {
-        setError = <p className='text-red-400 py-2'>{error?.message}{gError?.message}</p>
+    if (error || gError || errorReset) {
+        setError = <p className='text-red-400 py-2'>{error?.message}{gError?.message}{errorReset?.message}</p>
     }
     if (token) {
         navigate(from, { replace: true });
@@ -45,11 +58,12 @@ const Login = () => {
                 <h1 className='text-center text-2xl text-primary font-bold mt-2'>Login</h1>
                 <div className="card-body">
                     <form onSubmit={handleSubmit(onSubmit)}>
+
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="Your name" className="input input-bordered w-full max-w-xs" {...register("email", {
+                            <input type="text" placeholder="Your email" className="input input-bordered w-full max-w-xs" {...register("email", {
                                 required: {
                                     value: true,
                                     message: 'Email is Required'
@@ -58,15 +72,16 @@ const Login = () => {
                                     value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
                                     message: 'Provide a valid email'
                                 }
-                            })} />
+                            })} onChange={(e) => setEmail(e.target.value)} />
                             <label className="label">
                                 {errors.email?.type === 'required' && <p className='text-red-500'>{errors.email.message}</p>}
                                 {errors.email?.type === 'pattern' && <p className='text-red-500'>{errors.email.message}</p>}
                             </label>
                         </div>
+
                         <div className="form-control w-full max-w-xs">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text">Password</span>
                             </label>
                             <input type="password" placeholder="Your password" className="input input-bordered w-full max-w-xs" {...register("password", {
                                 required: {
@@ -83,10 +98,12 @@ const Login = () => {
                                 {errors.password?.type === 'minLength' && <p className='text-red-500'>{errors.password.message}</p>}
                             </label>
                         </div>
+
                         {setError}
                         <input type="submit" value={'Login'} className="btn w-full font-bold text-xl  max-w-xs mb-2" />
                     </form>
-                    <p>New to Electroma? <Link to='/signup' className='text-primary'>Please Sign Up</Link></p>
+                    <p>New to Electroma? <Link to='/signup' className='text-primary font-semibold'>Please Sign Up</Link></p>
+                    <p><button onlClick onClick={() => handleForgetPassword(email)} className='text-primary font-semibold'>Forget Password</button></p>
                 </div>
                 <div className="divider  px-6">OR</div>
 

@@ -1,15 +1,13 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import auth from '../init.firebase';
-import logo from '../assests/logo.png'
 import { AiOutlineMenuFold } from 'react-icons/ai';
-
+import { IoLogoElectron } from 'react-icons/io5'
 const Header = () => {
 
     const location = useLocation();
-    console.log(location.pathname)
     const [user] = useAuthState(auth);
     const handleSignOut = () => {
         localStorage.removeItem('accessToken');
@@ -41,13 +39,10 @@ const Header = () => {
 
     return (
         <div className='border bg-white sticky top-0 z-50 '>
-            <div className="navbar  justify-evenly  px-4 lg:px-12  relative">
+            <div className="navbar  justify-between  px-4 lg:px-12  relative">
 
-                <div>
-                    {location.pathname === '/dashboard' ? <label for="my-drawer-2" className="btn btn-outline  btn-info  drawer-button lg:hidden"><AiOutlineMenuFold /></label> : ''}
-                    <NavLink to='/home' ><img className='h-16 w-32' src={logo} alt="" /> </NavLink>
-                </div>
-                <div className="navbar-end">
+
+                <div className="navbar-start">
 
                     <div className="dropdown ">
                         <label tabIndex="0" className="btn btn-ghost lg:hidden ">
@@ -59,6 +54,11 @@ const Header = () => {
 
                     </div>
 
+                    <NavLink to='/home' ><h1 className=' flex items-center gap-1'> <IoLogoElectron style={{ fontSize: '1.5em', color: 'red' }} /> <span className='text-xl font-bold text-red-400'>Electroma</span> </h1> </NavLink>
+
+                </div>
+                <div>
+                    {location.pathname === '/dashboard' ? <label for="my-drawer-2" className="btn btn-outline  btn-info  drawer-button lg:hidden"><AiOutlineMenuFold /> </label> : ''}
 
                 </div>
                 <div className="navbar-end hidden lg:flex">
